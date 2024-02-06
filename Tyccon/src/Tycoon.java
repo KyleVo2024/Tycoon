@@ -17,8 +17,16 @@ public class Tycoon {
         this.EventLoop(pl1,pl2,pl3,pl4);
     }
 
-    public void EventLoop(Deck pl1, Deck pl2, Deck draw) {
+    public void EventLoop(Deck pl1, Deck pl2, Deck pl3, Deck pl4){
         Scanner scan = new Scanner(System.in);
+        boolean done = true;
+        boolean playerTurn =true;
+        Ui.printHand(pl1);
+        while (done){
+            while(playerTurn){
+
+            }
+        }
         
     }
 
