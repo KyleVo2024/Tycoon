@@ -1,8 +1,5 @@
-import java.util.List;
-import java.util.ArrayList;
 import java.lang.Math;
 import java.util.*;
-import java.util.Scanner;
 
 public class Tycoon {
     public Tycoon() {
@@ -13,22 +10,38 @@ public class Tycoon {
         Deck pl1 = allDecks[0];
         Deck pl2 = allDecks[1];
         Deck pl3 = allDecks[2];
-        Deck pl4 = allDecks[2];
-        this.EventLoop(pl1,pl2,pl3,pl4);
+        Deck pl4 = allDecks[3];
+        Deck field = new Deck();
+        this.EventLoop(pl1, pl2, pl3, pl4, field);
     }
 
-    public void EventLoop(Deck pl1, Deck pl2, Deck pl3, Deck pl4){
+    public void EventLoop(Deck pl1, Deck pl2, Deck pl3, Deck pl4, Deck field) {
         Scanner scan = new Scanner(System.in);
         boolean done = true;
-        boolean playerTurn =true;
+        boolean playerTurn = true;
+        String nextMove;
+        int Move;
         Ui.printHand(pl1);
-        while (done){
-            while(playerTurn){
+        while (done) {
+            while (playerTurn) {
+                try {
+                    nextMove = scan.nextLine();
+                    Move = Integer.parseInt(nextMove);
+                    playCard(pl1, Move)
+                    
 
+                } catch (InputMismatchException ie) {
+                    System.out.println("Can't play that!");
+                }
             }
         }
-        
+
     }
+    public void playCard(Deck deck, int index){
+        Card card = deck.revealCardAtIndex(index);
+        deck.addCardToDeck(card);
+    }
+
 
     public static void main(String[] args) throws Exception {
         Tycoon game = new Tycoon();
