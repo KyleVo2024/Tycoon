@@ -27,7 +27,7 @@ public class Tycoon {
                 try {
                     nextMove = scan.nextLine();
                     Move = Integer.parseInt(nextMove);
-                    playCard(pl1, Move)
+                    playCard(pl1, field, Move);
                     
 
                 } catch (InputMismatchException ie) {
@@ -37,9 +37,12 @@ public class Tycoon {
         }
 
     }
-    public void playCard(Deck deck, int index){
+    public void playCard(Deck deck, Deck field, int index){
         Card card = deck.revealCardAtIndex(index);
-        deck.addCardToDeck(card);
+        field.addCardToDeck(card);
+    }
+    public void checkMove(int Move){
+        
     }
 
 
