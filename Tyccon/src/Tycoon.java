@@ -28,6 +28,7 @@ public class Tycoon {
                     nextMove = scan.nextLine();
                     Move = Integer.parseInt(nextMove);
                     playCard(pl1, field, Move);
+                    Ui.printField(field);
                     
 
                 } catch (InputMismatchException ie) {

@@ -72,6 +72,16 @@ class Deck {
         }
         return null;
     }
+    public void sortHand(Deck hand) {
+        Card card;
+        int lowRank=0;
+        for(int i=0;i<hand.getDeckSize();i++){
+            card = hand.revealCardAtIndex(i);
+            if(card.getRank()<=lowRank){
+                //put more sorting here
+            }
+        }
+    }
 
     public void addCardToDeck(Card cardToAdd) {
         cards.add(cardToAdd);

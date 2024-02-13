@@ -6,7 +6,7 @@ public class Ui {
             System.out.println((i+1)+". "+hand1.getFace() +" of "+ hand1.getSuit());
         }
     }
-    public void printField(Deck field){
+    public static void printField(Deck field){
         Card card = field.revealCardAtIndex(field.getDeckSize()-1);
         System.out.println(card.getFace() +" of "+ card.getSuit());
 
