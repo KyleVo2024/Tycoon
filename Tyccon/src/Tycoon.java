@@ -21,6 +21,7 @@ public class Tycoon {
         boolean playerTurn = true;
         String nextMove;
         int Move;
+        Deck.sortHand(pl1);
         Ui.printHand(pl1);
         while (done) {
             while (playerTurn) {
@@ -42,7 +43,7 @@ public class Tycoon {
         Card card = deck.revealCardAtIndex(index);
         field.addCardToDeck(card);
     }
-    public void checkMove(int Move){
+    public void checkMove(int Move, Deck field){
         
     }
 

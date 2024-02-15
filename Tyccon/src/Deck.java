@@ -15,7 +15,7 @@ class Deck {
 
     public void initializeNewDeck() {
         String[] suits = { "Hearts", "Clubs", "Spades", "Diamonds" };
-        int[] ranks = { 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11 };
+        int[] ranks = { 13, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 };
         String[] faces = { "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace" };
         for (String suit : suits) {
             for (int idx = 0; idx < ranks.length; idx++) {
@@ -72,19 +72,33 @@ class Deck {
         }
         return null;
     }
-    public void sortHand(Deck hand) {
+
+    public static void sortHand(Deck hand) {
         Card card;
-        int lowRank=0;
-        for(int i=0;i<hand.getDeckSize();i++){
-            card = hand.revealCardAtIndex(i);
-            if(card.getRank()<=lowRank){
-                //put more sorting here
+        Card temp;
+        int lowRank = 1000;
+        int index = 0;
+        for (int x = 0; x < hand.getDeckSize(); x++) {
+            for (int i = 0; i < hand.getDeckSize(); i++) {
+                card = hand.revealCardAtIndex(i);
+                if (card.getRank() <= lowRank) {
+                    lowRank = card.getRank();
+                    index = i;
+                }
             }
+            card = hand.revealCardAtIndex(index);
+            temp = hand.revealCardAtIndex(0);
+            hand.addCardToDeckIndex(card,0);
+            hand.addCardToDeckIndex(temp,index);
         }
+
     }
 
     public void addCardToDeck(Card cardToAdd) {
         cards.add(cardToAdd);
+    }
+    public void addCardToDeckIndex(Card cardToAdd, int index) {
+        cards.add(index, cardToAdd);
     }
 
     public Card revealCardAtIndex(int i) {
